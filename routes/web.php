@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('estudiantes', EstudianteController::class);
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/carreras', [CarreraController::class, 'index'])->name('carreras.index');
+        Route::get('/carreras/create', [CarreraController::class, 'create'])->name('carreras.create');
+        Route::post('/carreras', [CarreraController::class, 'store'])->name('carreras.store');
+        Route::delete('/carreras/{carrera}', [CarreraController::class, 'destroy'])->name('carreras.destroy');
+        Route::get('/carreras/{carrera}/edit', [CarreraController::class, 'edit'])->name('carreras.edit');
+        Route::put('/carreras/{carrera}', [CarreraController::class, 'update'])->name('carreras.update');
+
+
+});
+
+
 
 require __DIR__.'/auth.php';
