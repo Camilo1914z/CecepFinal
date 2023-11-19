@@ -9,4 +9,5 @@ class Carrera extends Model
 {
     use HasFactory;
     
+
 }
