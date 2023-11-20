@@ -27,9 +27,6 @@
                     @endforeach
                 </select>
             </div>
-
-            <!-- Otros campos si los tienes -->
-
             <button type="submit" class="btn btn-primary">Actualizar Estudiante</button>
         </form>
     </div>

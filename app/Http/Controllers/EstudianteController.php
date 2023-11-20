@@ -16,28 +16,24 @@ class EstudianteController extends Controller
 
     public function create()
     {
-        // Aquí puedes pasar las carreras a la vista si es necesario
+ 
         $carreras = Carrera::all();
         return view('estudiantes.create', compact('carreras'));
     }
 
     public function store(Request $request)
     {
-        // Validación de los campos del formulario
-        $request->validate([
+          $request->validate([
             'nombre' => 'required|string|max:255',
             'carrera_id' => 'required|exists:carreras,id',
-            // Agrega más validaciones según sea necesario
+
         ]);
 
-        // Crear un nuevo estudiante
         Estudiante::create([
             'nombre' => $request->input('nombre'),
             'carrera_id' => $request->input('carrera_id'),
-            // Ajusta según la estructura de tu modelo y tabla
         ]);
 
-        // Redireccionar a la lista de estudiantes con un mensaje
         return redirect()->route('estudiantes.index')->with('success', 'Estudiante creado exitosamente');
     }
 
@@ -52,7 +48,7 @@ class EstudianteController extends Controller
     public function edit($id)
     {
         $estudiante = Estudiante::findOrFail($id);
-        $carreras = Carrera::all(); // Obtener todas las carreras para el formulario
+        $carreras = Carrera::all();
 
         return view('estudiantes.edit', compact('estudiante', 'carreras'));
     }

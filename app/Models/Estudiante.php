@@ -10,8 +10,8 @@ class Estudiante extends Model
     use HasFactory;
     protected $fillable = [
         'nombre',
-        'carrera_id', // Asegúrate de agregar todos los campos necesarios
-        // Otros campos si los tienes
+        'carrera_id', 
+
     ];
 
     public function carrera()

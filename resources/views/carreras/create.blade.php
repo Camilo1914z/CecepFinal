@@ -1,5 +1,3 @@
-<!-- resources/views/carreras/create.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +10,6 @@
     <div class="container mt-5">
         <h2>Crear Carrera</h2>
 
-        <!-- Formulario para crear carrera -->
         <form method="post" action="{{ route('carreras.store') }}">
             @csrf
             <div class="mb-3">
@@ -23,7 +20,7 @@
         </form>
     </div>
 
-    <!-- Bootstrap JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

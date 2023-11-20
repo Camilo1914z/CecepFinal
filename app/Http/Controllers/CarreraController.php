@@ -22,16 +22,13 @@ class CarreraController extends Controller
 
     public function store(Request $request)
     {
-        // Valida los datos del formulario
+
         $request->validate([
             'nombre' => 'required|string|max:255',
-            // Otros campos que puedas tener...
         ]);
 
-        // Crea una nueva instancia de Carrera con los datos del formulario
         Carrera::create($request->all());
 
-        // Redirige a la vista de index o a donde desees después de crear la carrera
         return redirect()->route('carreras.index')->with('success', 'Carrera creada exitosamente');
     }
 
@@ -53,7 +50,7 @@ public function update(Request $request, Carrera $carrera)
 {
     $request->validate([
         'nombre' => 'required|string|max:255',
-        // Otros campos que necesites validar
+
     ]);
 
     $carrera->update($request->all());
